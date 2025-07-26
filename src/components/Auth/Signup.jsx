@@ -26,7 +26,6 @@ function SignUp() {
       const response = await dispatch(createAccount(data));
       navigate("/login");
     } catch (error) {
-      console.log(error.response.data.error);
       throw error;
     }
   };

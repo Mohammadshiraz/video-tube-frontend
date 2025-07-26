@@ -26,7 +26,6 @@ function Navbar() {
   const handleLogout = async () => {
     const response = await dispatch(userLogout());
 
-    console.log(response);
     navigate("/login");
   };
 

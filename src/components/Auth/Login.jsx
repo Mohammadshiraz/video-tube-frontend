@@ -20,28 +20,27 @@ function Login() {
   const loading = useSelector((state) => state.auth?.loading);
 
   const submit = async (data) => {
-    try{
+    try {
       const isEmail = data.username.includes("@");
-    const loginData = isEmail
-      ? { email: data.username, password: data.password }
-      : data;
+      const loginData = isEmail
+        ? { email: data.username, password: data.password }
+        : data;
 
-    const response = await dispatch(userLogin(loginData));
-    if (response.type === "login/fulfilled") {
-      const user = await dispatch(getCurrentUser());
-      console.log(user);
-      if (user.type === "getCurrentUser/fulfilled" && response?.payload) {
-        toast.success("Logged in successfully");
-        console.log(user.payload.isVerified);
-        if (user.payload.isVerified) {
-          navigate("/");
-        } else {
-          navigate("/verify");
+      const response = await dispatch(userLogin(loginData));
+      if (response.type === "login/fulfilled") {
+        const user = await dispatch(getCurrentUser());
+
+        if (user.type === "getCurrentUser/fulfilled" && response?.payload) {
+          toast.success("Logged in successfully");
+
+          if (user.payload.isVerified) {
+            navigate("/");
+          } else {
+            navigate("/verify");
+          }
         }
       }
-    }
-    }
-    catch(error){
+    } catch (error) {
       toast.error(error.response.data.error);
       throw error;
     }

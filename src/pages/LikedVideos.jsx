@@ -28,7 +28,6 @@ function LikedVideos() {
     <>
       <Container>
         <div className="grid max-h-screen overflow-y-scroll lg:grid-cols-3 sm:grid-cols-2 text-white mb-20 sm:mb-0">
-          {console.log(likedVideos)}
           {likedVideos?.map((video) => (
             <VideoList
               key={video.likedVideo._id}

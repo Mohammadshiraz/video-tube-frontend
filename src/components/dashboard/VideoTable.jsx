@@ -46,7 +46,6 @@ function VideoTable({ videos, setPopUp, setVideoDetails }) {
                 </td>
                 <td className="border-b border-slate-500">
                   <span className="border rounded-lg outline-none px-2 bg-green-200 text-green-600">
-                    {console.log(video)}
                     {video?.views} views
                   </span>
                 </td>

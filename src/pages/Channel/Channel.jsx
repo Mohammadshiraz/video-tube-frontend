@@ -12,7 +12,7 @@ function Channel() {
   useEffect(() => {
     dispatch(userChannelProfile(username));
   }, [dispatch, username]);
-  console.log(channel);
+
   window.scrollTo(0, 0);
 
   return (

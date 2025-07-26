@@ -10,7 +10,7 @@ const initialState = {
 
 export const verifyAccount = createAsyncThunk("verify", async (user) => {
   try {
-    console.log(user);
+    // console.log(user);
     const response = await axiosInstance.get(`/auth/send-mail?id=${user}`);
     return response.data;
   } catch (error) {
@@ -31,7 +31,7 @@ export const createAccount = createAsyncThunk("register", async (data) => {
 
   try {
     const response = await axiosInstance.post("/user/register", formData);
-    console.log(response.data);
+    // console.log(response.data);
     toast.success("Registered successfully!!!");
     return response.data;
   } catch (error) {

@@ -20,7 +20,7 @@ function VideoDetail() {
   const dispatch = useDispatch();
   const { videoId } = useParams();
   const video = useSelector((state) => state.video?.video);
-  console.log(video);
+
   const comments = useSelector((state) => state.comment?.comments);
   const totalComments = useSelector((state) => state.comment?.totalComments);
   const hasNextPage = useSelector((state) => state.comment?.hasNextPage);
@@ -68,7 +68,6 @@ function VideoDetail() {
       <TweetAndComment comment={true} videoId={video?._id} />
       <InfiniteScroll fetchMore={fetchMoreComments} hasNextPage={hasNextPage}>
         <div className="w-full sm:max-w-4xl">
-          {console.log(comments)}
           {comments?.map((comment) => (
             <CommentList
               key={comment?._id}

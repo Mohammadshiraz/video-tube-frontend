@@ -23,7 +23,6 @@ const VerifyAccount = () => {
   const handleSend = async () => {
     const user = await dispatch(getCurrentUser());
     const verified = await dispatch(verifyAccount(user.payload));
-    console.log(verified.type);
   };
   return (
     <div>
